@@ -131,24 +131,31 @@ public class AISeek_Spawn : MonoBehaviour
         {
             if (player1SpawnedUnits < player1Units || player2SpawnedUnits < player2Units)
             {
-                if (hit.collider.tag == "Ground")
+                if(hit.collider != null)
                 {
-                    if (worldPos.x < 0)
+                    if (hit.collider.tag == "Ground")
                     {
-                        player1[player1SpawnedUnits] = selectedObject;
-                        P1 = Instantiate(player1[player1SpawnedUnits], worldPos, Quaternion.identity);
-                        P1.transform.parent = Team1.gameObject.transform;
-                        player1[player1SpawnedUnits].SetActive(true);
-                        player1SpawnedUnits++;
-                    }
-                    if (worldPos.x > 0)
-                    {
+                        if (worldPos.x < 0)
+                        {
+                            player1[player1SpawnedUnits] = selectedObject;
+                            P1 = Instantiate(player1[player1SpawnedUnits], worldPos, Quaternion.identity);
+                            P1.transform.parent = Team1.gameObject.transform;
+                            player1[player1SpawnedUnits].SetActive(true);
+                            player1SpawnedUnits++;
+                        }
+                        if (worldPos.x > 0)
+                        {
 
-                        player2[player2SpawnedUnits] = selectedObject;
-                        P2 = Instantiate(player2[player2SpawnedUnits], worldPos, Quaternion.identity);
-                        P2.transform.parent = Team2.gameObject.transform;
-                        player2[player2SpawnedUnits].SetActive(true);
-                        player2SpawnedUnits++;
+                            player2[player2SpawnedUnits] = selectedObject;
+                            P2 = Instantiate(player2[player2SpawnedUnits], worldPos, Quaternion.identity);
+                            P2.transform.parent = Team2.gameObject.transform;
+                            player2[player2SpawnedUnits].SetActive(true);
+                            player2SpawnedUnits++;
+                        }
+                    }
+                    else
+                    {
+                        return;
                     }
                 }
             }
