@@ -15,9 +15,11 @@ public class AI_MoveClosest : MonoBehaviour
     public GameObject enemyList;
     public Transform[] enemies;
 
-    private GameObject bestTarget;
+    public GameObject bestTarget;
 
-    // Use this for initialization
+    /// <summary>
+    /// Use this for initialization
+    /// </summary> 
     void Start()
     {
         Left = new Vector3(-10, 0, 0);
@@ -26,7 +28,9 @@ public class AI_MoveClosest : MonoBehaviour
         Right = new Vector3(10, 0, 0);
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
     void Update()
     {
         enemies = enemyList.GetComponentsInChildren<Transform>();
@@ -36,6 +40,11 @@ public class AI_MoveClosest : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Goes through the list of enemies and gets the closest 
+    /// </summary>
+    /// <param name="enemies">Transform[]</param>
+    /// <returns>the target closest to this object</returns>
     Transform GetClosestEnemy(Transform[] enemies)
     {
         Transform bestTarget = null;
@@ -43,27 +52,35 @@ public class AI_MoveClosest : MonoBehaviour
         Vector3 currentPosition = transform.position;
         foreach (Transform potentialTarget in enemies)
         {
-            //if(potentialTarget.name == "Team1" || potentialTarget.name == "Team2")
-            //{
-            //
-            //}
-            //else
-            //{
-                Vector3 directionToTarget = potentialTarget.position - currentPosition;
-                float dSqrToTarget = directionToTarget.sqrMagnitude;
-                if (dSqrToTarget < closestDistanceSqr)
-                {
-                    closestDistanceSqr = dSqrToTarget;
-                    bestTarget = potentialTarget;
-                }
+            if (potentialTarget != null)
+            {
 
-           // }
+                //if(potentialTarget.name == "Team1" || potentialTarget.name == "Team2")
+                //{
+                //
+                //}
+                //else
+                //{
+                    Vector3 directionToTarget = potentialTarget.position - currentPosition;
+                    float dSqrToTarget = directionToTarget.sqrMagnitude;
+                    if (dSqrToTarget < closestDistanceSqr)
+                    {
+                        closestDistanceSqr = dSqrToTarget;
+                        bestTarget = potentialTarget;
+                    }
+
+               // }
+
+            }
         }
     
         return bestTarget;
     }
 
-
+    /// <summary>
+    /// Moves towards the closest enemy
+    /// </summary>
+    /// <param name="enemy"></param>
     public void MoveToTarget(GameObject enemy)
     {
         if(enemy != null){

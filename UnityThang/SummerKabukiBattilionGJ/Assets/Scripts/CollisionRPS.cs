@@ -72,11 +72,11 @@ public class CollisionRPS : MonoBehaviour {
                 if (ThisScript.getPaper())
                 {
                     print("Scissors > Paper");
+                    Destroy(this.gameObject);
                 }
                 if (ThisScript.getScissors())
                 {
-                    print("Rock > Scissors");
-                    Destroy(this.gameObject);
+                    print("tie");
                 }
             }
         }
