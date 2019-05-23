@@ -12,8 +12,10 @@ public class Spawning : MonoBehaviour
     public GameObject player2UnitC;
     public GameObject[] player1;
     public GameObject[] player2;
+    public GameObject[] parentUnits;
     public GameObject selectedObject;
     public int mouseScrollValue;
+
 
     public int totalUnits;
     public int player1Units;
@@ -37,9 +39,16 @@ public class Spawning : MonoBehaviour
         player2 = new GameObject[player2Units];
         mouseScrollValue = 0;
         selectedObject = player1UnitA;
-        
 
+        parentUnits = new GameObject[6];
+        parentUnits[0] = player1UnitA;
+        parentUnits[1] = player1UnitB;
+        parentUnits[2] = player1UnitC;
+        parentUnits[3] = player2UnitA;
+        parentUnits[4] = player2UnitB;
+        parentUnits[5] = player2UnitC;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -111,6 +120,7 @@ public class Spawning : MonoBehaviour
         selectedObject.SetActive(true);
         selectedObject.transform.position = mousePos;
 
+       
 
         if (Input.GetMouseButton(0))
         {
@@ -125,6 +135,7 @@ public class Spawning : MonoBehaviour
                         player1[player1SpawnedUnits] = selectedObject;
                         Instantiate(player1[player1SpawnedUnits], worldPos, Quaternion.identity);
                         player1[player1SpawnedUnits].SetActive(true);
+                        player1[player1SpawnedUnits].GetComponent<AI_MoveClosest>().ID = 1;
                         player1SpawnedUnits++;
                     }
                     if (worldPos.x > 0)
@@ -132,6 +143,7 @@ public class Spawning : MonoBehaviour
                         player2[player2SpawnedUnits] = selectedObject;
                         Instantiate(player2[player2SpawnedUnits], worldPos, Quaternion.identity);
                         player2[player2SpawnedUnits].SetActive(true);
+                        player2[player2SpawnedUnits].GetComponent<AI_MoveClosest>().ID = 2;
                         player2SpawnedUnits++;
                     }
                     //for (int i = 0; i < (totalUnits/2); i++)
@@ -151,6 +163,15 @@ public class Spawning : MonoBehaviour
 
             }
         }
+        for (int i = 0; i < parentUnits.Length; i++)
+        {
+            parentUnits[i].SetActive(false);
 
+        }
+
+        if (GameObject.FindGameObjectsWithTag("Parent") == null)
+        {
+            Application.Quit();
+        }
     }
 }
