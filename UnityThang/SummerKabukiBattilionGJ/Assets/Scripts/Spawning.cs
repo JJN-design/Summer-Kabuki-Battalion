@@ -135,7 +135,7 @@ public class Spawning : MonoBehaviour
                         player1[player1SpawnedUnits] = selectedObject;
                         Instantiate(player1[player1SpawnedUnits], worldPos, Quaternion.identity);
                         player1[player1SpawnedUnits].SetActive(true);
-                        player1[player1SpawnedUnits].GetComponent<AI_MoveClosest>().ID = 1;
+ //                       player1[player1SpawnedUnits].GetComponent<AI_MoveClosest>().ID = 1;
                         player1[player1SpawnedUnits].tag = "Player 1";
                         player1SpawnedUnits++;
                     }
@@ -144,7 +144,7 @@ public class Spawning : MonoBehaviour
                         player2[player2SpawnedUnits] = selectedObject;
                         Instantiate(player2[player2SpawnedUnits], worldPos, Quaternion.identity);
                         player2[player2SpawnedUnits].SetActive(true);
-                        player2[player2SpawnedUnits].GetComponent<AI_MoveClosest>().ID = 2;
+//                        player2[player2SpawnedUnits].GetComponent<AI_MoveClosest>().ID = 2;
                         player2[player2SpawnedUnits].tag = "Player 2";
                         player2SpawnedUnits++;
                     }
