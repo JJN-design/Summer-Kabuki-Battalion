@@ -11,12 +11,8 @@ public class AI_MoveClosest : MonoBehaviour
     public Vector3 Down;
     public Vector3 Right;
 
-    public int ID;
 
-    
-    public GameObject[] enemyPlayer1;
-    public GameObject[] enemyPlayer2;
-
+    public GameObject enemyList;
     public Transform[] enemies;
 
     public GameObject bestTarget;
@@ -37,32 +33,13 @@ public class AI_MoveClosest : MonoBehaviour
     /// </summary>
     void Update()
     {
-        enemyPlayer2 = GameObject.FindGameObjectsWithTag("Player 2");
-        enemyPlayer1 = GameObject.FindGameObjectsWithTag("Player 1");
-        if (ID == 1)
-        {
-            enemies = new Transform[enemyPlayer2.Length];
-            for (int i = 0; i < enemyPlayer2.Length; i++)
-            {
-                enemies[i] = enemyPlayer2[i].transform;
-            }
-        }
-        else if (ID == 2)
-        {
-            enemies = new Transform[enemyPlayer1.Length];
-            for (int i = 0; i < enemyPlayer1.Length; i++)
-            {
-                enemies[i] = enemyPlayer1[i].transform;
-            }
-        }
-
-        
+        enemies = enemyList.GetComponentsInChildren<Transform>();
         if (enemies.Length > 1)
         {
             MoveToTarget(GetClosestEnemy(enemies).gameObject);
         }
     }
-    
+
     /// <summary>
     /// Goes through the list of enemies and gets the closest 
     /// </summary>
@@ -77,7 +54,7 @@ public class AI_MoveClosest : MonoBehaviour
         {
             if (potentialTarget != null)
             {
-                if(potentialTarget.name == "Team1" || potentialTarget.name == "Team2")
+                if (potentialTarget.name == "Team1" || potentialTarget.name == "Team2")
                 {
                     //if the target's name is the same as the empty holding all the objects it will ignore it.
                 }
@@ -106,7 +83,8 @@ public class AI_MoveClosest : MonoBehaviour
     public void MoveToTarget(GameObject enemy)
     {
         //checks to see if the enemy is null
-        if(enemy != null){
+        if (enemy != null)
+        {
             //moves the game object towards the target on the x axis
             if (enemy.transform.position.x > this.gameObject.gameObject.transform.position.x)
             {
