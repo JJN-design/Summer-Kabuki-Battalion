@@ -146,7 +146,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &164361348
 CapsuleCollider:
@@ -255,7 +255,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &610995341
 BoxCollider:
@@ -363,7 +363,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &877570335
 CapsuleCollider:
@@ -541,7 +541,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &1097935319
 CapsuleCollider:
@@ -745,6 +745,8 @@ MonoBehaviour:
   debugUnitCount: 0
   mousePos: {x: 0, y: 0, z: 0}
   worldPos: {x: 0, y: 0, z: 0}
+  tempWorldX: 0
+  tempWorldZ: 0
 --- !u!4 &1297223355
 Transform:
   m_ObjectHideFlags: 0
@@ -885,7 +887,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &1780832706
 BoxCollider:
@@ -993,7 +995,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &1943345117
 CapsuleCollider:

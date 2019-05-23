@@ -22,10 +22,12 @@ public class Spawning : MonoBehaviour
     public int player2SpawnedUnits;
     public int debugUnitCount;
     public Vector3 mousePos;
-
     public Vector3 worldPos;
     public Ray ray;
     public RaycastHit hit;
+
+    public int tempWorldX;
+    public int tempWorldZ;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +71,12 @@ public class Spawning : MonoBehaviour
         {
             worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         }
+
+        worldPos.x = Mathf.RoundToInt(worldPos.x);
+        worldPos.z= Mathf.RoundToInt(worldPos.z);
+        worldPos.y = Mathf.RoundToInt(worldPos.y) + 1;
+        
+
         if (worldPos.x < 0)
         {
             if (mouseScrollValue == 0)
