@@ -77,26 +77,25 @@ public class AI_MoveClosest : MonoBehaviour
         {
             if (potentialTarget != null)
             {
-
-                //if(potentialTarget.name == "Team1" || potentialTarget.name == "Team2")
-                //{
-                //
-                //}
-                //else
-                //{
+                if(potentialTarget.name == "Team1" || potentialTarget.name == "Team2")
+                {
+                    //if the target's name is the same as the empty holding all the objects it will ignore it.
+                }
+                else
+                {
+                    //checks the length between the current game object and the enemies
                     Vector3 directionToTarget = potentialTarget.position - currentPosition;
+                    //squares the distance to get the magnitude
                     float dSqrToTarget = directionToTarget.sqrMagnitude;
                     if (dSqrToTarget < closestDistanceSqr)
                     {
+                        //gets the gameobject the shortest distance away and makes it the best target to move towards
                         closestDistanceSqr = dSqrToTarget;
                         bestTarget = potentialTarget;
                     }
-
-               // }
-
+                }
             }
         }
-    
         return bestTarget;
     }
 
@@ -106,7 +105,9 @@ public class AI_MoveClosest : MonoBehaviour
     /// <param name="enemy"></param>
     public void MoveToTarget(GameObject enemy)
     {
+        //checks to see if the enemy is null
         if(enemy != null){
+            //moves the game object towards the target on the x axis
             if (enemy.transform.position.x > this.gameObject.gameObject.transform.position.x)
             {
                 this.rb.AddForce(Right);
@@ -119,6 +120,8 @@ public class AI_MoveClosest : MonoBehaviour
             {
                 return;
             }
+
+            //moves the game object towards the target on the z axis
             if (enemy.transform.position.z > this.gameObject.gameObject.transform.position.z)
             {
                 this.rb.AddForce(Up);

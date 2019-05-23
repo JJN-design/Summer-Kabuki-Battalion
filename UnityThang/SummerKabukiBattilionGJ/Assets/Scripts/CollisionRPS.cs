@@ -24,59 +24,65 @@ public class CollisionRPS : MonoBehaviour {
     /// <param name="other">GameObject</param>
     private void checkTag(GameObject other)
     {
-        if(CollScript != null)
+        //if both game objects have the same parent they are on same team and won't attack each other
+        if(other.gameObject.transform.parent != this.gameObject.transform.parent)
         {
-            if(CollScript.getRock())
+            //checks to see if the collision object has the collision script
+            if(CollScript != null)
             {
-                if(ThisScript.getRock())
+                //goes through checking which object won the rock, paper or scissors match.
+                if(CollScript.getRock())
                 {
-                    print("tie");
+                    if(ThisScript.getRock())
+                    {
+                        print("tie");
+                    }
+                    if (ThisScript.getPaper())
+                    {
+                        print("Rock < Paper");
+                        Destroy(other.gameObject);
+                    }
+                    if (ThisScript.getScissors())
+                    {
+                        print("Rock > Scissors");
+                        Destroy(this.gameObject);
+                    }
                 }
-                if (ThisScript.getPaper())
-                {
-                    print("Rock < Paper");
-                    Destroy(other.gameObject);
-                }
-                if (ThisScript.getScissors())
-                {
-                    print("Rock > Scissors");
-                    Destroy(this.gameObject);
-                }
-            }
 
-            else if (CollScript.getPaper())
-            {
-                if (ThisScript.getRock())
+                else if (CollScript.getPaper())
                 {
-                    print("Paper > Rock");
-                    Destroy(this.gameObject);
+                    if (ThisScript.getRock())
+                    {
+                        print("Paper > Rock");
+                        Destroy(this.gameObject);
+                    }
+                    if (ThisScript.getPaper())
+                    {
+                        print("tie");
+                    }
+                    if (ThisScript.getScissors())
+                    {
+                        print("Paper < Scissors");
+                        Destroy(other.gameObject);
+                    }
                 }
-                if (ThisScript.getPaper())
-                {
-                    print("tie");
-                }
-                if (ThisScript.getScissors())
-                {
-                    print("Paper < Scissors");
-                    Destroy(other.gameObject);
-                }
-            }
 
-            else if (CollScript.getScissors())
-            {
-                if (ThisScript.getRock())
+                else if (CollScript.getScissors())
                 {
-                    print("Scissors < Rock");
-                    Destroy(other.gameObject);
-                }
-                if (ThisScript.getPaper())
-                {
-                    print("Scissors > Paper");
-                    Destroy(this.gameObject);
-                }
-                if (ThisScript.getScissors())
-                {
-                    print("tie");
+                    if (ThisScript.getRock())
+                    {
+                        print("Scissors < Rock");
+                        Destroy(other.gameObject);
+                    }
+                    if (ThisScript.getPaper())
+                    {
+                        print("Scissors > Paper");
+                        Destroy(this.gameObject);
+                    }
+                    if (ThisScript.getScissors())
+                    {
+                        print("tie");
+                    }
                 }
             }
         }
