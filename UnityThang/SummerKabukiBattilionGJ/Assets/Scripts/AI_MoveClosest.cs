@@ -11,8 +11,12 @@ public class AI_MoveClosest : MonoBehaviour
     public Vector3 Down;
     public Vector3 Right;
 
+    public int ID;
+
     
-    public GameObject enemyList;
+    public GameObject[] enemyPlayer1;
+    public GameObject[] enemyPlayer2;
+
     public Transform[] enemies;
 
     public GameObject bestTarget;
@@ -33,8 +37,27 @@ public class AI_MoveClosest : MonoBehaviour
     /// </summary>
     void Update()
     {
-        enemies = enemyList.GetComponentsInChildren<Transform>();
-        if(enemies.Length > 1)
+        enemyPlayer2 = GameObject.FindGameObjectsWithTag("Player 2");
+        enemyPlayer1 = GameObject.FindGameObjectsWithTag("Player 1");
+        if (ID == 1)
+        {
+            enemies = new Transform[enemyPlayer2.Length];
+            for (int i = 0; i < enemyPlayer2.Length; i++)
+            {
+                enemies[i] = enemyPlayer2[i].transform;
+            }
+        }
+        else if (ID == 2)
+        {
+            enemies = new Transform[enemyPlayer1.Length];
+            for (int i = 0; i < enemyPlayer1.Length; i++)
+            {
+                enemies[i] = enemyPlayer1[i].transform;
+            }
+        }
+
+        
+        if (enemies.Length > 1)
         {
             MoveToTarget(GetClosestEnemy(enemies).gameObject);
         }
