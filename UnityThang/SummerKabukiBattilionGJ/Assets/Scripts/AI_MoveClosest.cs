@@ -13,6 +13,8 @@ public class AI_MoveClosest : MonoBehaviour
     public GameObject enemyList;
     public Transform[] enemies;
 
+    public bool ableToMove;
+
     public GameObject bestTarget;
 
     /// <summary>
@@ -25,6 +27,7 @@ public class AI_MoveClosest : MonoBehaviour
         Down = new Vector3(0, 0, -10);
         Right = new Vector3(10, 0, 0);
         Time.timeScale = 0.0f;
+        ableToMove = false;
 
         this.rb.maxAngularVelocity = 1;
     }
@@ -42,6 +45,7 @@ public class AI_MoveClosest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Time.timeScale = 1.0f;
+            ableToMove = true;
         }
     }
 
@@ -88,7 +92,7 @@ public class AI_MoveClosest : MonoBehaviour
     public void MoveToTarget(GameObject enemy)
     {
         //checks to see if the enemy is null
-        if (enemy != null)
+        if (enemy != null && ableToMove)
         {
             //moves the game object towards the target on the x axis
             if (enemy.transform.position.x > this.gameObject.gameObject.transform.position.x)
