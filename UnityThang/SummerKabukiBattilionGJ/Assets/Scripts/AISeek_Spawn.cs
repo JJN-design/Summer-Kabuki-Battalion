@@ -37,7 +37,9 @@ public class AISeek_Spawn : MonoBehaviour
 
     public int tempWorldX;
     public int tempWorldZ;
-    // Start is called before the first frame update
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
         player1Units = (totalUnits / 2);
@@ -56,7 +58,9 @@ public class AISeek_Spawn : MonoBehaviour
         parentUnits[5] = player2UnitC;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
     void Update()
     {
         mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);

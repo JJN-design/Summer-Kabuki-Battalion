@@ -520,7 +520,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 299360960}
-  - component: {fileID: 299360959}
   - component: {fileID: 299360958}
   m_Layer: 0
   m_Name: GameEngine
@@ -563,39 +562,6 @@ MonoBehaviour:
   P2: {fileID: 0}
   mouseScrollValue: 0
   totalUnits: 600
-  player1Units: 0
-  player2Units: 0
-  player1SpawnedUnits: 0
-  player2SpawnedUnits: 0
-  debugUnitCount: 0
-  mousePos: {x: 0, y: 0, z: 0}
-  worldPos: {x: 0, y: 0, z: 0}
-  tempWorldX: 0
-  tempWorldZ: 0
---- !u!114 &299360959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299360957}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f30bbf298d500f24ebe64f516c8d67f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1UnitA: {fileID: 1881954320}
-  player1UnitB: {fileID: 2107415308}
-  player1UnitC: {fileID: 1247872722}
-  player2UnitA: {fileID: 276956259}
-  player2UnitB: {fileID: 26480141}
-  player2UnitC: {fileID: 695378421}
-  player1: []
-  player2: []
-  parentUnits: []
-  selectedObject: {fileID: 0}
-  mouseScrollValue: 0
-  totalUnits: 1600
   player1Units: 0
   player2Units: 0
   player1SpawnedUnits: 0

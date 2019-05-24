@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class AI_MoveClosest : MonoBehaviour
 {
-
     public Rigidbody rb;
     public Vector3 Left;
     public Vector3 Up;
     public Vector3 Down;
     public Vector3 Right;
-
 
     public GameObject enemyList;
     public Transform[] enemies;
@@ -26,6 +24,9 @@ public class AI_MoveClosest : MonoBehaviour
         Up = new Vector3(0, 0, 10);
         Down = new Vector3(0, 0, -10);
         Right = new Vector3(10, 0, 0);
+        Time.timeScale = 0.0f;
+
+        this.rb.maxAngularVelocity = 1;
     }
 
     /// <summary>
@@ -37,6 +38,10 @@ public class AI_MoveClosest : MonoBehaviour
         if (enemies.Length > 1)
         {
             MoveToTarget(GetClosestEnemy(enemies).gameObject);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Time.timeScale = 1.0f;
         }
     }
 

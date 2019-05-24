@@ -6,6 +6,7 @@ public class CollisionRPS : MonoBehaviour {
 
     private RPS_Set CollScript = null;
     private RPS_Set ThisScript = null;
+    private bool tie = false;
 
     /// <summary>
     /// Checks to see if the object has collided with anything
@@ -36,6 +37,7 @@ public class CollisionRPS : MonoBehaviour {
                     if(ThisScript.getRock())
                     {
                         print("tie");
+                        tie = true;
                     }
                     if (ThisScript.getPaper())
                     {
@@ -59,6 +61,7 @@ public class CollisionRPS : MonoBehaviour {
                     if (ThisScript.getPaper())
                     {
                         print("tie");
+                        tie = true;
                     }
                     if (ThisScript.getScissors())
                     {
@@ -82,6 +85,23 @@ public class CollisionRPS : MonoBehaviour {
                     if (ThisScript.getScissors())
                     {
                         print("tie");
+                        tie = true;
+                    }
+                }
+                if (tie)
+                {
+                    int randomNumber = Random.Range(1, 3);
+                    if (randomNumber == 1)
+                    {
+                        Destroy(other.gameObject);
+                    }
+                    else if (randomNumber == 2)
+                    {
+                        Destroy(this.gameObject);
+                    }
+                    else if(randomNumber == 3)
+                    {
+
                     }
                 }
             }
