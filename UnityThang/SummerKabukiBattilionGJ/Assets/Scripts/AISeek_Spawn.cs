@@ -35,6 +35,14 @@ public class AISeek_Spawn : MonoBehaviour
     public Ray ray;
     public RaycastHit hit;
 
+    public bool mainCamera;
+    public bool player1Camera;
+    public bool player2Camera;
+
+    public Camera CameraMain;
+    public Camera CameraPlayer1;
+    public Camera CameraPlayer2;
+
     public int tempWorldX;
     public int tempWorldZ;
     /// <summary>
@@ -56,6 +64,10 @@ public class AISeek_Spawn : MonoBehaviour
         parentUnits[3] = player2UnitA;
         parentUnits[4] = player2UnitB;
         parentUnits[5] = player2UnitC;
+        mainCamera = true;
+        player1Camera = false;
+        player2Camera = false;
+
     }
 
     /// <summary>
@@ -64,7 +76,21 @@ public class AISeek_Spawn : MonoBehaviour
     void Update()
     {
         mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
-        ray = Camera.main.ScreenPointToRay(mousePos);
+
+        if (CameraMain)
+        {
+            //ray = new Ray(CameraMain.transform.position, CameraMain.transform.forward);
+            ray = CameraMain.ScreenPointToRay(mousePos);
+        }
+        if (CameraPlayer1)
+        {
+            ray = CameraPlayer1.ScreenPointToRay(mousePos);
+        }
+        if (CameraPlayer2)
+        {
+            ray = CameraPlayer2.ScreenPointToRay(mousePos);
+        }
+        //ray = Camera.main.ScreenPointToRay(mousePos);
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             mouseScrollValue++;
