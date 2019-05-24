@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: e96403ca0c4ec5140a798011e081dff5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: head
+    100002: helmet
+    100004: kabuki
+    100006: //RootNode
+    100008: Left_clavicle
+    100010: Left_elbow
+    100012: Left_foot
+    100014: Left_hand
+    100016: Left_leg
+    100018: Left_shoulder
+    100020: neck
+    100022: poolnoodle
+    100024: Right_clavicle
+    100026: Right_elbow
+    100028: Right_foot
+    100030: Right_hand
+    100032: Right_leg
+    100034: Right_shoulder
+    100036: spine_01
+    100038: spine_02
+    100040: spine_03
+    100042: supersoaker
+    100044: surfboard
+    400000: head
+    400002: helmet
+    400004: kabuki
+    400006: //RootNode
+    400008: Left_clavicle
+    400010: Left_elbow
+    400012: Left_foot
+    400014: Left_hand
+    400016: Left_leg
+    400018: Left_shoulder
+    400020: neck
+    400022: poolnoodle
+    400024: Right_clavicle
+    400026: Right_elbow
+    400028: Right_foot
+    400030: Right_hand
+    400032: Right_leg
+    400034: Right_shoulder
+    400036: spine_01
+    400038: spine_02
+    400040: spine_03
+    400042: supersoaker
+    400044: surfboard
+    2100000: lambert8
+    2100002: lambert9
+    2100004: lambert1
+    2300000: helmet
+    2300002: poolnoodle
+    2300004: supersoaker
+    2300006: surfboard
+    3300000: helmet
+    3300002: poolnoodle
+    3300004: supersoaker
+    3300006: surfboard
+    4300000: kabuki
+    4300002: helmet
+    4300004: poolnoodle
+    4300006: surfboard
+    4300008: supersoaker
+    9500000: //RootNode
+    13700000: kabuki
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
