@@ -153,7 +153,6 @@ public class AISeek_Spawn : MonoBehaviour
         {
             worldPos = SelectedCamera.ScreenToWorldPoint(mousePos);
         }
-
         worldPos.x = Mathf.RoundToInt(worldPos.x);
         worldPos.z = Mathf.RoundToInt(worldPos.z);
         worldPos.y = Mathf.RoundToInt(worldPos.y) + 1;
