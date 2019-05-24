@@ -26,7 +26,6 @@ public class AI_MoveClosest : MonoBehaviour
         Up = new Vector3(0, 0, 10);
         Down = new Vector3(0, 0, -10);
         Right = new Vector3(10, 0, 0);
-        Time.timeScale = 0.0f;
         ableToMove = false;
 
         this.rb.maxAngularVelocity = 1;
@@ -44,7 +43,6 @@ public class AI_MoveClosest : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Time.timeScale = 1.0f;
             ableToMove = true;
         }
     }

@@ -42,6 +42,7 @@ public class AISeek_Spawn : MonoBehaviour
     public Camera CameraMain;
     public Camera CameraPlayer1;
     public Camera CameraPlayer2;
+    public Camera SelectedCamera;
 
     public int tempWorldX;
     public int tempWorldZ;
@@ -77,18 +78,54 @@ public class AISeek_Spawn : MonoBehaviour
     {
         mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
 
-        if (CameraMain)
+        if (CameraMain.gameObject.activeInHierarchy)
+        {
+            mainCamera = true;
+            SelectedCamera = CameraMain;
+        }
+        else
+        {
+            mainCamera = false;
+        }
+        if (CameraPlayer1.gameObject.activeInHierarchy)
+        {
+            player1Camera = true;
+            SelectedCamera = CameraPlayer1;
+        }
+        else
+        {
+            player1Camera = false;
+        }
+        if (CameraPlayer2.gameObject.activeInHierarchy)
+        {
+            player2Camera = true;
+            SelectedCamera = CameraPlayer2;
+        }
+        else
+        {
+            player2Camera = false;
+        }
+
+        if (mainCamera)
         {
             //ray = new Ray(CameraMain.transform.position, CameraMain.transform.forward);
             ray = CameraMain.ScreenPointToRay(mousePos);
+            player1Camera = false;
+            player2Camera = false;
+            
         }
-        if (CameraPlayer1)
+        if (player1Camera)
         {
             ray = CameraPlayer1.ScreenPointToRay(mousePos);
+            mainCamera = false;
+            player2Camera = false;
         }
-        if (CameraPlayer2)
+        if (player2Camera)
         {
             ray = CameraPlayer2.ScreenPointToRay(mousePos);
+            mainCamera = false;
+            player1Camera = false;
+            
         }
         //ray = Camera.main.ScreenPointToRay(mousePos);
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
@@ -114,14 +151,13 @@ public class AISeek_Spawn : MonoBehaviour
         }
         else
         {
-            worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+            worldPos = SelectedCamera.ScreenToWorldPoint(mousePos);
         }
 
         worldPos.x = Mathf.RoundToInt(worldPos.x);
         worldPos.z = Mathf.RoundToInt(worldPos.z);
         worldPos.y = Mathf.RoundToInt(worldPos.y) + 1;
-
-
+        
         if (worldPos.x < 0)
         {
             if (mouseScrollValue == 0)
@@ -167,20 +203,25 @@ public class AISeek_Spawn : MonoBehaviour
                     {
                         if (worldPos.x < 0)
                         {
-                            player1[player1SpawnedUnits] = selectedObject;
-                            P1 = Instantiate(player1[player1SpawnedUnits], worldPos, Quaternion.identity);
-                            P1.transform.parent = Team1.gameObject.transform;
-                            player1[player1SpawnedUnits].SetActive(true);
-                            player1SpawnedUnits++;
+                            if(player1SpawnedUnits < (totalUnits / 2))
+                            {
+                                player1[player1SpawnedUnits] = selectedObject;
+                                P1 = Instantiate(player1[player1SpawnedUnits], worldPos, Quaternion.identity);
+                                P1.transform.parent = Team1.gameObject.transform;
+                                player1[player1SpawnedUnits].SetActive(true);
+                                player1SpawnedUnits++;
+                            }
                         }
                         if (worldPos.x > 0)
                         {
-
-                            player2[player2SpawnedUnits] = selectedObject;
-                            P2 = Instantiate(player2[player2SpawnedUnits], worldPos, Quaternion.identity);
-                            P2.transform.parent = Team2.gameObject.transform;
-                            player2[player2SpawnedUnits].SetActive(true);
-                            player2SpawnedUnits++;
+                            if (player2SpawnedUnits < (totalUnits / 2))
+                            {
+                                player2[player2SpawnedUnits] = selectedObject;
+                                P2 = Instantiate(player2[player2SpawnedUnits], worldPos, Quaternion.identity);
+                                P2.transform.parent = Team2.gameObject.transform;
+                                player2[player2SpawnedUnits].SetActive(true);
+                                player2SpawnedUnits++;
+                            }
                         }
                     }
                     else
